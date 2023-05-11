@@ -4,6 +4,26 @@ let wordDisplay = document.getElementById('word-display');
 let livesCounter = document.getElementById('lives-counter');
 let letterButtons = document.getElementById('letter-buttons');
 let playAgainButton = document.getElementById('play-again');
+let gameMessage = document.getElementById('game-message');
+
+let hangmanParts = [
+	document.getElementById('hangman-rope-part-1'),
+	document.getElementById('hangman-rope-part-2'),
+	document.getElementById('hangman-rope-part-3'),
+	document.getElementById('hangman-rope-part-4'),
+	document.getElementById('hangman-head'),
+	document.getElementById('hangman-body'),
+	document.getElementById('hangman-left-arm'),
+	document.getElementById('hangman-right-arm'),
+	document.getElementById('hangman-left-leg'),
+	document.getElementById('hangman-right-leg'),
+];
+
+function resetHangman() {
+	for (let part of hangmanParts) {
+		part.style.display = 'none';
+	}
+}
 
 function newGame() {
 	fetch('https://random-word-api.herokuapp.com/word?number=1')
@@ -14,6 +34,8 @@ function newGame() {
 			gameMessage.innerText = '';
 			wordDisplay.innerText = '_'.repeat(word.length);
 			livesCounter.innerText = `Lives: ${lives}`;
+
+			resetHangman();
 		});
 
 	// Clear out the old letter buttons
@@ -30,37 +52,45 @@ function newGame() {
 		letterButtons.appendChild(button);
 	}
 }
-let gameMessage = document.getElementById('game-message');
 
 function checkLetter(letter) {
 	if (lives === 0) {
 		return;
 	}
 
-	if (word.includes(letter)) {
-		for (let i = 0; i < word.length; i++) {
-			if (word[i] === letter) {
-				wordDisplay.innerText =
-					wordDisplay.innerText.slice(0, i) +
-					letter +
-					wordDisplay.innerText.slice(i + 1);
-			}
+	let letterFound = false;
+	for (let i = 0; i < word.length; i++) {
+		if (word[i] === letter) {
+			wordDisplay.innerText =
+				wordDisplay.innerText.slice(0, i) +
+				letter +
+				wordDisplay.innerText.slice(i + 1);
+			letterFound = true;
 		}
-	} else {
+	}
+
+	if (!letterFound) {
+		drawHangman();
 		lives--;
-		livesCounter.innerText = `Lives: ${lives}`;	
-		if (lives === 0) {
-			gameMessage.innerText = 'Game over! The hangman has been hanged!';
-			Array.from(letterButtons.children).forEach(
-				(button) => (button.disabled = true)
-			);
-		}
+		livesCounter.innerText = `Lives: ${lives}`;
+	}
+
+	if (lives === 0) {
+		gameMessage.innerText = 'Game over! The hangman has been hanged!';
+		Array.from(letterButtons.children).forEach(
+			(button) => (button.disabled = true)
+		);
+	}
+}
+
+function drawHangman() {
+	const part = hangmanParts[10 - lives];
+	if (part) {
+		part.style.display = 'block';
 	}
 }
 
 playAgainButton.addEventListener('click', newGame);
 
 // Start a new game when the page loads
-newGame();
-
-
+window.onload = newGame;
