@@ -25,6 +25,9 @@ button {
 	padding: 10px;
 	font-size: 1.5rem;
 }
+button:disabled{
+	opacity: 50%;
+}
 #lives-counter {
 	margin: 20px;
 	color: white;
@@ -49,5 +52,25 @@ button {
 	display: flex;
 	flex-wrap: wrap;
 }
-
+.hangman-part {
+	display: none;
+	border: 1px solid black;
+	margin: 5px;
+  }
+  
+  #hangman-head {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+  }
+  
+  #hangman-body {
+	width: 20px;
+	height: 100px;
+  }
+  
+  #hangman-left-arm, #hangman-right-arm, #hangman-left-leg, #hangman-right-leg {
+	width: 50px;
+	height: 20px;
+  }
 

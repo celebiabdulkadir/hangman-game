@@ -48,7 +48,7 @@ function checkLetter(letter) {
 		}
 	} else {
 		lives--;
-		livesCounter.innerText = `Lives: ${lives}`;
+		livesCounter.innerText = `Lives: ${lives}`;	
 		if (lives === 0) {
 			gameMessage.innerText = 'Game over! The hangman has been hanged!';
 			Array.from(letterButtons.children).forEach(
@@ -62,3 +62,5 @@ playAgainButton.addEventListener('click', newGame);
 
 // Start a new game when the page loads
 newGame();
+
+
