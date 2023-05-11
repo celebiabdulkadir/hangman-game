@@ -26,6 +26,15 @@ function resetHangman() {
 }
 
 function newGame() {
+	// Disable the "Play Again" button
+	playAgainButton.disabled = true;
+
+	// Show the loading spinner
+	const loadingSpinner = document.getElementById('loading-spinner');
+	loadingSpinner.style.display = 'block';
+
+	// Add 'loading' class to container
+	document.querySelector('.container').classList.add('loading');
 	fetch('https://random-word-api.herokuapp.com/word?number=1')
 		.then((response) => response.json())
 		.then((json) => {
@@ -36,6 +45,21 @@ function newGame() {
 			livesCounter.innerText = `Lives: ${lives}`;
 
 			resetHangman();
+			loadingSpinner.style.display = 'none';
+			// Remove 'loading' class from container
+			document.querySelector('.container').classList.remove('loading');
+
+			// Enable the "Play Again" button
+			playAgainButton.disabled = false;
+		})
+		.catch((error) => {
+			// ...
+
+			// Hide the loading spinner in case of an error
+			loadingSpinner.style.display = 'none';
+
+			// Remove 'loading' class from container in case of an error
+			document.querySelector('.container').classList.remove('loading');
 		});
 
 	// Clear out the old letter buttons
@@ -73,15 +97,15 @@ function checkLetter(letter) {
 		drawHangman();
 		lives--;
 		livesCounter.innerText = `Lives: ${lives}`;
-	} else if (wordDisplay.innerText === word) {
-		gameMessage.innerText = 'Congratulations! You found the word!';
+	}
+
+	if (lives === 0) {
+		gameMessage.innerText = `Game over! The word was "${word}"`;
 		Array.from(letterButtons.children).forEach(
 			(button) => (button.disabled = true)
 		);
-	}
-
-	if (lives === 0 && wordDisplay.innerText !== word) {
-		gameMessage.innerText = 'Game over! The hangman has been hanged!';
+	} else if (wordDisplay.innerText === word) {
+		gameMessage.innerText = 'Congratulations! You found the word!';
 		Array.from(letterButtons.children).forEach(
 			(button) => (button.disabled = true)
 		);
