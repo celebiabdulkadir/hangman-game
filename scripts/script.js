@@ -73,9 +73,14 @@ function checkLetter(letter) {
 		drawHangman();
 		lives--;
 		livesCounter.innerText = `Lives: ${lives}`;
+	} else if (wordDisplay.innerText === word) {
+		gameMessage.innerText = 'Congratulations! You found the word!';
+		Array.from(letterButtons.children).forEach(
+			(button) => (button.disabled = true)
+		);
 	}
 
-	if (lives === 0) {
+	if (lives === 0 && wordDisplay.innerText !== word) {
 		gameMessage.innerText = 'Game over! The hangman has been hanged!';
 		Array.from(letterButtons.children).forEach(
 			(button) => (button.disabled = true)
