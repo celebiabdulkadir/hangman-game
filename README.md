@@ -3,7 +3,9 @@
 ## Overview
 Create a hangman game! <br>
 Example of what we want to accomplish [here](https://codepen.io/cathydutton/pen/ldazc). You can use it to know exactly what the game is about, but do not copy it. Use your own way. Be as creative as you can! (You don't need to implement Hint button)
-
+ ## You can experince live
+ 
+ [![Netlify Status](https://api.netlify.com/api/v1/badges/2381bb1e-3df6-4245-9665-45ee7e6251a7/deploy-status)](https://hangman-re-coded.netlify.app/)
 ![Example of hangman game](images/example.jpg)
 ### Requirements
 
