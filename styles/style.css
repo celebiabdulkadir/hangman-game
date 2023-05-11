@@ -1,32 +1,43 @@
-body{
+body {
 	font-family: 'Poppins', sans-serif;
-	background-color:rgb(193,215,59); ;
+	background-color: rgb(193, 215, 59);
+	padding: 20px;
 }
 button {
 	margin: 5px;
 }
 button:hover {
-	background-color: rgb(193,215,59);
-	color:white;
+	background-color: rgb(193, 215, 59);
+	color: white;
 	border: 1px white solid;
 }
 .container {
-	background-color: rgb(193,215,59);
+	background-color: rgb(193, 215, 59);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
 button {
+	border: 1px transparent solid;
 	border-radius: 3px;
-	border: none;
+
+	cursor: pointer;
+	text-align: center;
+	width: 2.5rem;
+	height: 2.5rem;
 	background-color: white;
-	color: rgb(193,215,59); 
-	padding: 10px;
+	color: rgb(193, 215, 59);
+
 	font-size: 1.5rem;
 }
-button:disabled{
-	opacity: 50%;
+button:disabled {
+	opacity: 40%;
+}
+#play-again {
+	padding: 1rem;
+	width: auto;
+	height: auto;
 }
 #lives-counter {
 	margin: 20px;
@@ -34,43 +45,130 @@ button:disabled{
 	font-size: 3rem;
 }
 #word-display {
-	color: white; 
+	color: white;
 	font-size: 3rem;
 }
 .title {
-	color:white;
+	color: white;
 	font-size: 1.5rem;
 	text-align: center;
 }
 
 .p-title {
-	color:white;
+	color: white;
 	font-size: 1.2rem;
 	text-align: center;
 }
 #letter-buttons {
 	display: flex;
 	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
+	align-items: center;
 }
-.hangman-part {
+#hangman-container {
+	position: relative;
+	height: 300px;
+	width: 300px;
+	border: 3px dashed white;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 10px;
+	margin: 10px;
+}
+
+#hangman-rope-part-1,
+#hangman-rope-part-2,
+#hangman-rope-part-3,
+#hangman-rope-part-4 {
+	width: 2px;
+	height: 20px;
+	background-color: black;
+	position: absolute;
+	left: 50%;
+}
+
+#hangman-rope-part-1 {
+	top: 0px;
+}
+
+#hangman-rope-part-2 {
+	top: 20px;
+}
+
+#hangman-rope-part-3 {
+	top: 40px;
+}
+
+#hangman-rope-part-4 {
+	top: 60px;
+}
+#hangman-rope-part-1,
+#hangman-rope-part-2,
+#hangman-rope-part-3,
+#hangman-rope-part-4,
+#hangman-head,
+#hangman-body,
+#hangman-left-arm,
+#hangman-right-arm,
+#hangman-left-leg,
+#hangman-right-leg {
 	display: none;
-	border: 1px solid black;
-	margin: 5px;
-  }
-  
-  #hangman-head {
+}
+#hangman-head {
 	width: 50px;
 	height: 50px;
 	border-radius: 50%;
-  }
-  
-  #hangman-body {
-	width: 20px;
-	height: 100px;
-  }
-  
-  #hangman-left-arm, #hangman-right-arm, #hangman-left-leg, #hangman-right-leg {
-	width: 50px;
-	height: 20px;
-  }
+	background-color: black;
+	position: absolute;
+	left: calc(50% - 25px);
+	top: 80px;
+}
 
+#hangman-body {
+	width: 2px;
+	height: 130px;
+	background-color: black;
+	position: absolute;
+	left: 50%;
+	top: 130px;
+}
+
+#hangman-left-leg,
+#hangman-right-leg {
+	width: 50px;
+	height: 2px;
+	background-color: black;
+	position: absolute;
+	top: 250px;
+}
+
+#hangman-left-leg {
+	left: calc(50% - 48px);
+	transform: rotate(150deg);
+}
+
+#hangman-right-leg {
+	left: calc(50%);
+	transform: rotate(-150deg);
+}
+#hangman-left-arm,
+#hangman-right-arm {
+	width: 50px;
+	height: 2px;
+	background-color: black;
+	position: absolute;
+	top: 180px;
+}
+
+#hangman-left-arm {
+	left: calc(50% - 48px);
+	transform: rotate(150deg);
+}
+
+#hangman-right-arm {
+	left: calc(50%);
+	transform: rotate(-150deg);
+}

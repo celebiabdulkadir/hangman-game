@@ -6,42 +6,49 @@
 		<title>Document</title>
 		<link rel="stylesheet" href="./styles/style.css" />
 		<link
-   href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
-   rel="stylesheet"
-  />
+			href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
+			rel="stylesheet"
+		/>
 	</head>
 	<body>
+		<div class="container">
+			<div class="c-title">
+				<h1 class="title">
+					HANGMAN <br />
+					VANILLA JAVASCRIPT HANGMAN GAME
+				</h1>
+				<p class="p-title">
+					Use the alphabet below to guess the word, or click hint to get a clue.
+				</p>
+			</div>
 
-	<div class="container">
-        <div class="c-title">
-		<h1 class="title"> HANGMAN <br>
-			VANILLA JAVASCRIPT HANGMAN GAME</h1>
-			<p class="p-title">Use the alphabet below to guess the word, or click hint to get a clue.</p>
+			<div id="letter-buttons">
+				<!-- JavaScript will populate this with buttons -->
+			</div>
+
+			<div id="word-display">
+				<!-- JavaScript will populate this with underscores -->
+			</div>
+
+			<div id="lives-counter">
+				<!-- JavaScript will update this with the number of lives left -->
+			</div>
+			<div id="hangman-container">
+				<div id="hangman-rope-part-1" class="hangman-part"></div>
+				<div id="hangman-rope-part-2" class="hangman-part"></div>
+				<div id="hangman-rope-part-3" class="hangman-part"></div>
+				<div id="hangman-rope-part-4" class="hangman-part"></div>
+				<div id="hangman-head" class="hangman-part"></div>
+				<div id="hangman-body" class="hangman-part"></div>
+				<div id="hangman-left-arm" class="hangman-part"></div>
+				<div id="hangman-right-arm" class="hangman-part"></div>
+
+				<div id="hangman-left-leg" class="hangman-part"></div>
+				<div id="hangman-right-leg" class="hangman-part"></div>
+			</div>
+			<div id="game-message"></div>
+			<div><button id="play-again">Play Again</button></div>
 		</div>
-		<div id="letter-buttons">
-			<!-- JavaScript will populate this with buttons -->
-		</div>
-
-		<div id="word-display">
-			<!-- JavaScript will populate this with underscores -->
-		</div>
-
-
-		<div id="lives-counter">
-			<!-- JavaScript will update this with the number of lives left -->
-		</div>
-        <div id="hangman-container">
-			<div id="hangman-head" class="hangman-part"></div>
-			<div id="hangman-body" class="hangman-part"></div>
-			<div id="hangman-left-arm" class="hangman-part"></div>
-			<div id="hangman-right-arm" class="hangman-part"></div>
-			<div id="hangman-left-leg" class="hangman-part"></div>
-			<div id="hangman-right-leg" class="hangman-part"></div>
-		  </div>
-
-		<div id="game-message"></div>
-		<button id="play-again">Play Again</button>
-	</div>
 
 		<script src="./scripts/script.js"></script>
 	</body>
