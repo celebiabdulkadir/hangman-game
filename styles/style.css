@@ -1,3 +1,76 @@
+body{
+	font-family: 'Poppins', sans-serif;
+	background-color:rgb(193,215,59); ;
+}
 button {
 	margin: 5px;
 }
+button:hover {
+	background-color: rgb(193,215,59);
+	color:white;
+	border: 1px white solid;
+}
+.container {
+	background-color: rgb(193,215,59);
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+button {
+	border-radius: 3px;
+	border: none;
+	background-color: white;
+	color: rgb(193,215,59); 
+	padding: 10px;
+	font-size: 1.5rem;
+}
+button:disabled{
+	opacity: 50%;
+}
+#lives-counter {
+	margin: 20px;
+	color: white;
+	font-size: 3rem;
+}
+#word-display {
+	color: white; 
+	font-size: 3rem;
+}
+.title {
+	color:white;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.p-title {
+	color:white;
+	font-size: 1.2rem;
+	text-align: center;
+}
+#letter-buttons {
+	display: flex;
+	flex-wrap: wrap;
+}
+.hangman-part {
+	display: none;
+	border: 1px solid black;
+	margin: 5px;
+  }
+  
+  #hangman-head {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+  }
+  
+  #hangman-body {
+	width: 20px;
+	height: 100px;
+  }
+  
+  #hangman-left-arm, #hangman-right-arm, #hangman-left-leg, #hangman-right-leg {
+	width: 50px;
+	height: 20px;
+  }
+
